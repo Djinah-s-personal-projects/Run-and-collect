@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 movement;
 
+    public CollectableManager collectableManager;
+
     // Update is called once per frame
     void Update()
     {
@@ -27,5 +29,14 @@ public class PlayerMovement : MonoBehaviour
     {
         // Movement
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Collectable"))
+        {
+            Destroy(other.gameObject);
+            collectableManager.collectableCount ++;
+        }
     }
 }
