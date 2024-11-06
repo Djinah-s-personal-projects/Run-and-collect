@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class CollectableManager : MonoBehaviour
 {
     public int collectableCount;
-    public TextMeshPro collectableText;
+    public TextMeshProUGUI collectableText;
     // Start is called before the first frame update
     void Start()
     {
