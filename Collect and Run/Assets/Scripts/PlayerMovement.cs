@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody2D rb;
     public Animator animator;
+    public HealthControl healthControl;
+    public EnnemyAI ennemy;
 
     Vector2 movement;
 
@@ -37,6 +39,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Destroy(other.gameObject);
             collectableManager.collectableCount ++;
+        }
+
+        if (other.gameObject.CompareTag("Ennemy"))
+        {
+            healthControl.decreaseLive();
         }
     }
 }
